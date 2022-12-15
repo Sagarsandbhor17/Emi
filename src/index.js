@@ -22,7 +22,7 @@ app.use("/products",product);
 app.use("/bookmarks",book);
 
 app.get('/' , (req , res) => {
-  res.send("<div> <h1>LIFE IS AWESOME...</h1> <h3> You are watching backend of Emi Calculator </h3> </div>")
+  res.send("<div> <h1>LIFE IS AWESOME...</h1> <h3> You are watching backend of SAGAR SANDBHOR.</h3> </div>")
 })
 
 app.listen(PORT||8080, async () => {
