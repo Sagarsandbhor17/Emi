@@ -3,7 +3,9 @@ const dotenv=require("dotenv");
 var bodyParser = require("body-parser");
 const cors=require("cors");
 const user=require('./features/users/users.router');
-const emi=require('./features/emi/emi.router')
+const emi=require('./features/emi/emi.router');
+const product=require("./features/products/products.router");
+const book=require("./features/bookmarks/bookmark.router");
 const dbConnect=require('./config/db')
 dotenv.config();
 let PORT =process.env.PORT || 8080;
@@ -15,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/users", user);
-app.use("/calculateEmi",emi)
+app.use("/calculateEmi",emi);
+app.use("/products",product);
+app.use("/bookmarks",book);
 
 app.get('/' , (req , res) => {
   res.send("<div> <h1>LIFE IS AWESOME...</h1> <h3> You are watching backend of Emi Calculator </h3> </div>")
