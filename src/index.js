@@ -6,6 +6,7 @@ const user=require('./features/users/users.router');
 const emi=require('./features/emi/emi.router');
 const product=require("./features/products/products.router");
 const book=require("./features/bookmarks/bookmark.router");
+const job=require("./features/jobs/jobs.router");
 const dbConnect=require('./config/db')
 dotenv.config();
 let PORT =process.env.PORT || 8080;
@@ -20,6 +21,7 @@ app.use("/users", user);
 app.use("/calculateEmi",emi);
 app.use("/products",product);
 app.use("/bookmarks",book);
+app.use("/jobs",job)
 
 app.get('/' , (req , res) => {
   res.send("<div> <h1>LIFE IS AWESOME...</h1> <h3> You are watching backend of SAGAR SANDBHOR.</h3> </div>")
