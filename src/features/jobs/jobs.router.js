@@ -7,8 +7,17 @@ app.get("",async(req,res)=>{
     try{
         const page=req.query.page || 1;
         const size=req.query.size || 10;
+        const order=req.query.orderBy;
         const jobs=await Job.find().skip((page-1)*size).limit(size);
-        return res.send(jobs);
+
+        if(order==="asc"){
+            let upd=jobs.sort((a,b)=>new Date(a.postedAt) - new Date(b.postedAt));
+            return res.send(upd);
+        }
+        else{
+            let upd=jobs.sort((a,b)=>new Date(b.postedAt) - new Date(a.postedAt));
+            return res.send(upd);
+        }
     }
     catch(e){
         return res.send(e.message);
