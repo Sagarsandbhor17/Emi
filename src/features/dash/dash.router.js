@@ -17,3 +17,5 @@ app.post("",async(req,res)=>{
     try{await Dashboard.create(req.body);return res.send("Player Added")}
     catch(e){return res.send(e.message)}
 })
+
+module.exports=app;
